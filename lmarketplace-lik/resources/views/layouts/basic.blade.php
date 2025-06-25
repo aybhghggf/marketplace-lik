@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LmarketDyalek - Marketplace de produits d'occasion au Maroc</title>
+    <title>@yield('title')</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,32 +18,18 @@
         <x-nav />
     </header>
 
-    <!-- Hero Section -->
-    <x-HeroSection />
+   <!-- Main Content -->
+   @yield('Home')
+    @yield('Categories')
 
-    <!-- Categorie Section -->
-    <x-CategorieSection />
 
-    <!-- Featured Products -->
-    <x-LastAnnonce />
 
-    <!-- Popular Cities -->
-    <x-AnnoncesParVille />
 
-    <!-- Mobile App CTA -->
-    <x-MobileDownlad />
 
-    <!-- CTA Section -->
-    <x-CTA />
-
-    <!-- Value Proposition Section -->
-    <x-WhyUs />
-
-    <!-- How it Works -->
-    <x-HowItWorck />
-
+    <footer>
     <!-- Footer -->
     <x-Footer />
+    </footer>
 
     <!-- Floating Action Button -->
     <a href="#" class="floating-action-button">
