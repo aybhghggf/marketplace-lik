@@ -1,5 +1,5 @@
         <div class="container mx-auto px-4 py-3 flex items-center justify-between">
-            <a href="#" class="text-white text-2xl logo-font flex items-center">
+            <a href="{{ route('home') }}" class="text-white text-2xl logo-font flex items-center">
                 <i class="ri-shopping-bag-3-line mr-2 text-secondary"></i>
                 LmarketDyalek
             </a>
@@ -46,12 +46,4 @@
             </button>
         </div>
             
-    <!-- Mobile Search (visible only on mobile) -->
-    <div class="md:hidden pt-20 px-4 bg-white shadow-sm">
-        <div class="relative">
-            <input type="text" placeholder="Rechercher un produit..." class="search-input w-full py-3 px-4 pr-10 rounded-button text-sm border border-gray-200 focus:border-secondary focus:ring-2 focus:ring-secondary">
-            <div class="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 flex items-center justify-center text-gray-500">
-                <i class="ri-search-line"></i>
-            </div>
-        </div>
-    </div>
+   

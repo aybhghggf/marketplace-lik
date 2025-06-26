@@ -10,13 +10,12 @@
                     </div>
                 </button>
                 <div class="flex flex-col space-y-4 text-white text-lg">
-                    <a href="#" class="py-2 border-b border-gray-700">Accueil</a>
-                    <a href="#" class="py-2 border-b border-gray-700">Catégories</a>
-                    <a href="#" class="py-2 border-b border-gray-700">Tendances</a>
-                    <a href="#" class="py-2 border-b border-gray-700">Comment ça marche</a>
-                    <a href="#" class="py-2 border-b border-gray-700">À propos</a>
-                    <a href="#" class="py-2 border-b border-gray-700">Connexion</a>
-                    <a href="#" class="bg-secondary text-white px-4 py-3 rounded-button text-center mt-4">Déposer une annonce</a>
+                    <a href="/" class="py-2 border-b border-gray-700">Accueil</a>
+                    <a href="/categories" class="py-2 border-b border-gray-700">Catégories</a>    
+                    <a href="how-it-works" class="py-2 border-b border-gray-700">Comment ça marche</a>
+                    <a href="/about" class="py-2 border-b border-gray-700">À propos</a>
+                    <a href="/connexion" class="py-2 border-b border-gray-700">Connexion</a>
+                    <a href="/new-announcement" class="bg-secondary text-white px-4 py-3 rounded-button text-center mt-4">Déposer une annonce</a>
                 </div>
             `;
             

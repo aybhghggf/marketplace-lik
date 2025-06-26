@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categorie;
 
 class IndexController extends Controller
 {
     public function ShowHome()
     {
         return view('Home');
-    }
-    public function ShowCategorys()
-    {
-        return view('Categories');
     }
     public function HowItWorks()
     {

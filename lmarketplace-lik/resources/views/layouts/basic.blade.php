@@ -18,9 +18,15 @@
         <x-nav />
     </header>
 
+    
    <!-- Main Content -->
    @yield('Home')
     @yield('Categories')
+    @yield('About')
+    @yield('HowItWorks')
+    @yield('NewAnnonce')
+    @yield('Profile')
+    @yield('Categorie')
 
 
 
