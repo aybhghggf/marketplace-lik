@@ -4,26 +4,26 @@ Accueil - LmarketDyalek
 @endsection
  @section('Home')
  <!-- Hero Section -->
-    <x-HeroSection />
+    <x-hero-section />
 
     <!-- Categorie Section -->
-    <x-CategorieSection />
+    <x-categorie-section />
 
     <!-- Featured Products -->
-    <x-LastAnnonce />
+    <x-last-annonce />
 
     <!-- Popular Cities -->
-    <x-AnnoncesParVille />
+    <x-annonces-par-ville />
 
     <!-- Mobile App CTA -->
-    <x-MobileDownlad />
+    <x-mobile-downald />
 
     <!-- CTA Section -->
-    <x-CTA />
+    <x-c-t-a />
 
     <!-- Value Proposition Section -->
-    <x-WhyUs />
+    <x-why-us />
 
     <!-- How it Works -->
-    <x-HowItWorck />
+    <x-how-it-worck />
 @endsection
