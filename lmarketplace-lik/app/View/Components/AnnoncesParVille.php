@@ -10,9 +10,9 @@ class AnnoncesParVille extends Component
 {
     public $villes;
 
-    public function __construct($villes = null) // ✅ نزيدو = null باش ما يعطيناش الخطأ
+    public function __construct($villes = null) // 
     {
-        $this->villes = $villes ?? collect(); // ✅ حتى إيلا ما تسيفطاتش
+        $this->villes = $villes ?? collect(); 
     }
 
     public function render(): View|Closure|string

@@ -12,7 +12,7 @@
                 @foreach ($villes as $ville)
                     <a href="#" class="group">
                         <div class="relative overflow-hidden rounded-lg h-40">
-                            <img src="{{ $ville->image ?? 'https://via.placeholder.com/300x160' }}" alt="{{ $ville->name }}" class="w-full h-full object-cover">
+                            <img src="{{ asset('Villes/' . $ville->image) }}" alt="{{ $ville->name }}" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                             <div class="absolute bottom-0 left-0 p-4">
                                 <h3 class="text-white font-semibold text-lg">{{ $ville->name}}</h3>
