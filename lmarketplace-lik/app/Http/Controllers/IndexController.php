@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\Ville;
 
 class IndexController extends Controller
 {
     public function ShowHome()
     {
-        return view('Home');
+        $Villes= Ville::paginate();
+        return view('Home' , compact('Villes'));
     }
     public function HowItWorks()
     {

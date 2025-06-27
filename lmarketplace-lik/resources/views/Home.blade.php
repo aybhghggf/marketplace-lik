@@ -3,6 +3,9 @@
 Accueil - LmarketDyalek
 @endsection
  @section('Home')
+
+
+
  <!-- Hero Section -->
     <x-hero-section />
 
@@ -13,8 +16,7 @@ Accueil - LmarketDyalek
     <x-last-annonce />
 
     <!-- Popular Cities -->
-    <x-annonces-par-ville />
-
+<x-annonces-par-ville :villes="$Villes" />
     <!-- Mobile App CTA -->
     <x-mobile-downald />
 

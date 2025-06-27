@@ -2,23 +2,19 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
+use Closure;
 
 class AnnoncesParVille extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $villes;
+
+    public function __construct($villes = null) // ✅ نزيدو = null باش ما يعطيناش الخطأ
     {
-        //
+        $this->villes = $villes ?? collect(); // ✅ حتى إيلا ما تسيفطاتش
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.annonces-par-ville');
