@@ -7,13 +7,20 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-        public function ShowProfile()
+    public function ShowProfile()
     {
         if (Auth::user() === null) {
-            return redirect()->route('home')->with('error', 'You must be logged in to view your profile.');
+            return redirect()->route('login')->with('error', 'Vous devez être connecté pour accéder à votre profil.');
         } else {
             return view('Profile');
         }
-    
-}
+    }
+    public function ShowLogin()
+    {
+        return view('Login');
+    }
+    public function ShowRegister()
+    {
+        return view('register');
+    }
 }

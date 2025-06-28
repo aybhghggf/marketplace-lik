@@ -10,6 +10,10 @@ Route::get('/categories', [CategorieController::class, 'ShowCategorys'])->name('
 Route::get('/how-it-works', [IndexController::class, 'HowItWorks'])->name('how_it_works');
 Route::get('/about', [IndexController::class, 'ShowAbout'])->name('about');
 Route::get('/new-announcement', [IndexController::class, 'ShowNewAnnouncement'])->name('new_announcement');
-Route::get('/profile', [UserController::class, 'ShowProfile'])->name('profile');
 
 Route::get('/categorie/{id}', [CategorieController::class, 'ShowCategory'])->name('categorie.show');
+
+// User routes
+Route::get('/profile', [UserController::class, 'ShowProfile'])->name('profile');
+Route::get('/login', [UserController::class, 'ShowLogin'])->name('login');
+Route::get('/register', [UserController::class, 'ShowRegister'])->name('register');
