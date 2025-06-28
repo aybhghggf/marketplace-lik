@@ -1,12 +1,11 @@
- @extends('layouts.basic')
+@extends('layouts.basic')
+
 @section('title')
-Accueil - LmarketDyalek
+    Accueil - LmarketDyalek
 @endsection
- @section('Home')
 
-
-
- <!-- Hero Section -->
+@section('Home')
+    <!-- Hero Section -->
     <x-hero-section />
 
     <!-- Categorie Section -->
@@ -16,7 +15,8 @@ Accueil - LmarketDyalek
     <x-last-annonce />
 
     <!-- Popular Cities -->
-<x-annonces-par-ville :villes="$Villes" />
+    <x-annonces-par-ville :villes="$Villes" />
+
     <!-- Mobile App CTA -->
     <x-mobile-downald />
 
@@ -28,7 +28,6 @@ Accueil - LmarketDyalek
 
     <!-- How it Works -->
     <x-how-it-worck />
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
 @endsection
