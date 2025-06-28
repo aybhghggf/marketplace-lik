@@ -9,11 +9,18 @@ use Illuminate\View\Component;
 class CategorieSection extends Component
 {
     /**
+     * The categories collection.
+     *
+     * @var \Illuminate\Support\Collection|mixed
+     */
+    public $categories;
+
+    /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct( $categories = null )
     {
-        //
+        $this->categories = $categories ?? collect(); // Initialize with an empty collection if null
     }
 
     /**

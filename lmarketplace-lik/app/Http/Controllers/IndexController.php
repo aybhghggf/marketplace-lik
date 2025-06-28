@@ -8,11 +8,22 @@ use App\Models\Ville;
 
 class IndexController extends Controller
 {
-    public function ShowHome()
+    public function ShowHome(Request $request)
     {
-        $Villes= Ville::paginate();
-        return view('Home' , compact('Villes'));
+        $categories = Categorie::paginate(6);
+        $Villes = Ville::paginate();
+
+  $categories = Categorie::paginate(6);
+    $Villes = Ville::paginate();
+
+    if ($request->ajax()) {
+        // تجربة باش نتأكد
+        return response()->json(['ajax' => true, 'html' => view('components.categorie-section', compact('categories'))->render()]);
     }
+
+        return view('home', compact('categories', 'Villes'));
+    }
+
     public function HowItWorks()
     {
         return view('HowItWork');

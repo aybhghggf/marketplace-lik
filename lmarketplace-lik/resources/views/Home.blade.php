@@ -10,7 +10,7 @@ Accueil - LmarketDyalek
     <x-hero-section />
 
     <!-- Categorie Section -->
-    <x-categorie-section />
+    <x-categorie-section :categories="$categories" />
 
     <!-- Featured Products -->
     <x-last-annonce />
@@ -28,4 +28,7 @@ Accueil - LmarketDyalek
 
     <!-- How it Works -->
     <x-how-it-worck />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
 @endsection

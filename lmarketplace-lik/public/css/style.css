@@ -344,3 +344,21 @@
                 pointer-events: none;
             } #4B5563;
             pointer-events: none;
+            nav[role="navigation"] a,
+nav[role="navigation"] span {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+nav[role="navigation"] a:hover {
+    background-color: #f5f5f5;
+}
+
+nav[role="navigation"] span[aria-current="page"] {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
