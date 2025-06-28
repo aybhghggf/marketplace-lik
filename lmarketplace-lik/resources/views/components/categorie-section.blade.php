@@ -9,7 +9,7 @@
         
 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
     @foreach ($categories as $category)
-        <a href="#" class="category-card bg-white p-6 rounded-lg shadow-sm text-center transition-all duration-300">
+        <a href="{{ route('categorie.show',$category->id) }}" class="category-card bg-white p-6 rounded-lg shadow-sm text-center transition-all duration-300">
             <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center text-white bg-primary rounded-full">
                 <i class="{{ $category->icon }} ri-2x"></i>
             </div>
