@@ -76,7 +76,7 @@
                 <!-- Sign Up Link -->
                 <p class="text-center text-sm text-gray-600">
                     Vous n'avez pas de compte? 
-                    <a href="#" class="text-gold hover:text-gold-dark font-medium transition-colors">S'inscrire</a>
+                    <a href="{{ route('register') }}" class="text-gold hover:text-gold-dark font-medium transition-colors">S'inscrire</a>
                 </p>
             </form>
         </div>
@@ -101,13 +101,5 @@
             <div class="absolute bottom-32 right-16 w-8 h-8 border border-black border-opacity-30 rotate-45"></div>
         </div>
     </div>
-
-    <script>
-        // Simple form validation
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Sign in functionality would be implemented here!');
-        });
-    </script>
 </body>
 </html>

@@ -28,4 +28,8 @@ class IndexController extends Controller
     {
         return view('NewAnnonce');
     }
+    public function PolitiqueConfidentialite()
+    {
+        return view('PolitiqueConfidentialité');
+    }
 }

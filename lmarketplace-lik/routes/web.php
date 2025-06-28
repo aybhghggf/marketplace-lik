@@ -10,6 +10,13 @@ Route::get('/categories', [CategorieController::class, 'ShowCategorys'])->name('
 Route::get('/how-it-works', [IndexController::class, 'HowItWorks'])->name('how_it_works');
 Route::get('/about', [IndexController::class, 'ShowAbout'])->name('about');
 Route::get('/new-announcement', [IndexController::class, 'ShowNewAnnouncement'])->name('new_announcement');
+Route::get('/politique-confidentialite', [IndexController::class, 'PolitiqueConfidentialite'])->name('politique_confidentialite');
+
+
+
+
+
+
 
 Route::get('/categorie/{id}', [CategorieController::class, 'ShowCategory'])->name('categorie.show');
 
