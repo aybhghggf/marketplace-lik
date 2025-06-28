@@ -128,10 +128,10 @@ Comment ça marche - LmarketDyalek
                     Rejoignez notre communauté de plus de 500 000 utilisateurs au Maroc
                 </p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <a href="#" class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
+                    <a href="" class="bg-secondary text-white px-6 py-3 rounded-lg hover:bg-opacity-90 transition-colors font-medium">
                         Créer un compte gratuit
                     </a>
-                    <a href="#" class="border border-secondary text-secondary px-6 py-3 rounded-lg hover:bg-secondary hover:text-white transition-colors font-medium">
+                    <a href="{{ route('categories') }}" class="border border-secondary text-secondary px-6 py-3 rounded-lg hover:bg-secondary hover:text-white transition-colors font-medium">
                         Voir les annonces
                     </a>
                 </div>

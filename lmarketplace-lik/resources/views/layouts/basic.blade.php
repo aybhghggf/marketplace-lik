@@ -12,6 +12,23 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/tailwindconfig.js') }}"></script>
 </head>
+
+<!-- Success Alert -->
+@if(session('success'))
+    <x-alert-succes>
+        {{ session('success') }}
+    </x-alert-succes>
+@endif
+
+@if(session('error'))
+    <x-fail-alert>
+        {{ session('error') }}
+    </x-fail-alert>
+@endif
+
+
+
+
 <body class="bg-gray-50">
     <!-- Navbar -->
     <header class="fixed top-0 left-0 w-full bg-primary z-50 shadow-md">

@@ -47,7 +47,7 @@
             </div>
 
             <div class="text-center mt-10">
-                <a href="#" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                <a href="{{ route('categories') }}" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
                     <span>Voir plus d'annonces</span>
                     <i class="ri-arrow-right-line ml-2"></i>
                 </a>

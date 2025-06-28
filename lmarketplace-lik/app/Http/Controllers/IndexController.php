@@ -13,15 +13,7 @@ class IndexController extends Controller
         $categories = Categorie::paginate(6);
         $Villes = Ville::paginate();
 
-  $categories = Categorie::paginate(6);
-    $Villes = Ville::paginate();
-
-    if ($request->ajax()) {
-        // تجربة باش نتأكد
-        return response()->json(['ajax' => true, 'html' => view('components.categorie-section', compact('categories'))->render()]);
-    }
-
-        return view('home', compact('categories', 'Villes'));
+        return view('Home', compact('categories', 'Villes'));
     }
 
     public function HowItWorks()
@@ -35,9 +27,5 @@ class IndexController extends Controller
     public function ShowNewAnnouncement()
     {
         return view('NewAnnonce');
-    }
-    public function ShowProfile()
-    {
-        return view('Profile');
     }
 }
