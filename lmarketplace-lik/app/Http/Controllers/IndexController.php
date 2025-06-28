@@ -32,4 +32,8 @@ class IndexController extends Controller
     {
         return view('PolitiqueConfidentialité');
     }
+    public function ShowConditions()
+    {
+        return view('Conditions');
+    }
 }

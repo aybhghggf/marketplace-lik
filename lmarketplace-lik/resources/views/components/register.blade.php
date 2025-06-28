@@ -27,7 +27,16 @@
         }
     </style>
 </head>
+<div class="absolute top-4 left-4">
+    <a href="{{ route('login') }}" class="text-gray-600 hover:text-gray-900 transition-colors flex items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        Revenir
+    </a>
+</div>
 <body class="min-h-screen flex items-center justify-center p-4">
+
     <div class="flex w-full max-w-6xl min-h-[700px] bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100">
         <!-- Form Section -->
         <div class="flex-1 p-12 flex flex-col justify-center">
@@ -88,7 +97,7 @@
                     <label class="flex items-start">
                         <input type="checkbox" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold mt-1">
                         <span class="ml-3 text-sm text-gray-600">
-                            J'accepte les <a href="" class="text-gold hover:text-gold-dark">conditions d'utilisation</a> et la <a href="{{ route('politique_confidentialite') }}" class="text-gold hover:text-gold-dark">politique de confidentialité</a>
+                            J'accepte les <a href="{{ route('conditions') }}" class="text-gold hover:text-gold-dark">conditions d'utilisation</a> et la <a href="{{ route('politique_confidentialite') }}" class="text-gold hover:text-gold-dark">politique de confidentialité</a>
                         </span>
                     </label>
                     <label class="flex items-center">

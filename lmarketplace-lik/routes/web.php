@@ -11,6 +11,7 @@ Route::get('/how-it-works', [IndexController::class, 'HowItWorks'])->name('how_i
 Route::get('/about', [IndexController::class, 'ShowAbout'])->name('about');
 Route::get('/new-announcement', [IndexController::class, 'ShowNewAnnouncement'])->name('new_announcement');
 Route::get('/politique-confidentialite', [IndexController::class, 'PolitiqueConfidentialite'])->name('politique_confidentialite');
+Route::get('/conditions', [IndexController::class, 'ShowConditions'])->name('conditions');
 
 
 
