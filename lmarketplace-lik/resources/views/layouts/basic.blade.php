@@ -23,7 +23,7 @@
    @yield('Home')
     @yield('Categories')
     @yield('About')
-    @yield('HowItWorks')
+    @yield('How-It-Work')
     @yield('NewAnnonce')
     @yield('Profile')
     @yield('Categorie')
