@@ -55,39 +55,75 @@
             </div>
 
             <!-- Form -->
-            <form class="space-y-6">
-                <!-- Email -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse e-mail</label>
-                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Saisissez votre e-mail">
-                </div>
+<form class="space-y-6" action="{{ route('login.store') }}" method="POST">
+    @csrf
 
-                <!-- Password -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Saisissez votre mot de passe">
-                </div>
+    {{-- Erreurs globales --}}
+    @if ($errors->any())
+        <div class="mb-4 p-4 rounded-lg bg-red-100 border border-red-300 text-red-700">
+            <ul class="list-disc list-inside text-sm">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-                <!-- Remember & Forgot -->
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center">
-                        <input type="checkbox" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold">
-                        <span class="ml-2 text-sm text-gray-600">Se souvenir pendant 30 jours</span>
-                    </label>
-                    <a href="#" class="text-sm text-gold hover:text-gold-dark transition-colors">Mot de passe oublié</a>
-                </div>
+    <!-- Email -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Adresse e-mail</label>
+        <input 
+            type="email" 
+            name="email" 
+            value="{{ old('email') }}"
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" 
+            placeholder="Saisissez votre e-mail"
+        >
+        @error('email')
+            <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+        @enderror
+    </div>
 
-                <!-- Sign In Button -->
-                <button type="submit" class="w-full gold-gradient text-black py-3 px-4 rounded-lg font-medium hover:opacity-90 transition-colors shadow-md">
-                    Se connecter
-                </button>
+    <!-- Password -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+        <input 
+            type="password" 
+            name="password" 
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" 
+            placeholder="Saisissez votre mot de passe"
+        >
+        @error('password')
+            <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+        @enderror
+    </div>
 
-                <!-- Sign Up Link -->
-                <p class="text-center text-sm text-gray-600">
-                    Vous n'avez pas de compte? 
-                    <a href="{{ route('register') }}" class="text-gold hover:text-gold-dark font-medium transition-colors">S'inscrire</a>
-                </p>
-            </form>
+    <!-- Remember & Forgot -->
+    <div class="flex items-center justify-between">
+        <label class="flex items-center">
+            <input 
+                type="checkbox" 
+                name="remember" 
+                class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold"
+                {{ old('remember') ? 'checked' : '' }}
+            >
+            <span class="ml-2 text-sm text-gray-600">Se souvenir pendant 30 jours</span>
+        </label>
+        <a href="#" class="text-sm text-gold hover:text-gold-dark transition-colors">Mot de passe oublié</a>
+    </div>
+
+    <!-- Sign In Button -->
+    <button type="submit" class="w-full gold-gradient text-black py-3 px-4 rounded-lg font-medium hover:opacity-90 transition-colors shadow-md">
+        Se connecter
+    </button>
+
+    <!-- Sign Up Link -->
+    <p class="text-center text-sm text-gray-600">
+        Vous n'avez pas de compte? 
+        <a href="{{ route('register') }}" class="text-gold hover:text-gold-dark font-medium transition-colors">S'inscrire</a>
+    </p>
+</form>
+
         </div>
 
         <!-- Image Section -->

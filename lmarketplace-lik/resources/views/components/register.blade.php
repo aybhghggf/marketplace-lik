@@ -55,69 +55,104 @@
             </div>
 
             <!-- Form -->
-            <form class="space-y-5" method="POST" action="{{ route('register.store') }}">
-                @csrf
-                <!-- Name Fields -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
-                        <input type="text" name="first_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre prénom">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
-                        <input type="text" name="last_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre nom">
-                    </div>
-                </div>
+<form class="space-y-5" method="POST" action="{{ route('register.store') }}">
+    @csrf
 
-                <!-- Email -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Adresse e-mail</label>
-                    <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="votre.email@exemple.com">
-                </div>
+    {{-- Global error display --}}
+    @if ($errors->any())
+        <div class="mb-4 p-4 rounded-lg bg-red-100 border border-red-300 text-red-700">
+            <ul class="list-disc list-inside text-sm">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-                <!-- Phone -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
-                    <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="+33 6 12 34 56 78">
-                </div>
+    <!-- Name Fields -->
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
+            <input type="text" name="first_name" value="{{ old('first_name') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre prénom">
+            @error('first_name')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
+            <input type="text" name="last_name" value="{{ old('last_name') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre nom">
+            @error('last_name')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+    </div>
 
-                <!-- Password -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-                    <input type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Minimum 8 caractères">
-                </div>
+    <!-- Email -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Adresse e-mail</label>
+        <input type="email" name="email" value="{{ old('email') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="votre.email@exemple.com">
+        @error('email')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
 
-                <!-- Confirm Password -->
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le mot de passe</label>
-                    <input type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Confirmez votre mot de passe">
-                </div>
+    <!-- Phone -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
+        <input type="tel" name="phone" value="{{ old('phone') }}" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="+33 6 12 34 56 78">
+        @error('phone')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
 
-                <!-- Terms & Newsletter -->
-                <div class="space-y-3">
-                    <label class="flex items-start">
-                        <input type="checkbox" name="terms" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold mt-1">
-                        <span class="ml-3 text-sm text-gray-600">
-                            J'accepte les <a href="{{ route('conditions') }}" class="text-gold hover:text-gold-dark">conditions d'utilisation</a> et la <a href="{{ route('politique_confidentialite') }}" class="text-gold hover:text-gold-dark">politique de confidentialité</a>
-                        </span>
-                    </label>
-                    <label class="flex items-center">
-                        <input type="checkbox" name="newsletter" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold">
-                        <span class="ml-3 text-sm text-gray-600">Je souhaite recevoir des offres spéciales et des actualités par e-mail</span>
-                    </label>
-                </div>
+    <!-- Password -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
+        <input type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Minimum 8 caractères">
+        @error('password')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
 
-                <!-- Register Button -->
-                <button type="submit" class="w-full gold-gradient text-black py-3 px-4 rounded-lg font-medium hover:opacity-90 transition-colors shadow-md">
-                    Créer mon compte
-                </button>
+    <!-- Confirm Password -->
+    <div>
+        <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le mot de passe</label>
+        <input type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Confirmez votre mot de passe">
+    </div>
 
-                <!-- Sign In Link -->
-                <p class="text-center text-sm text-gray-600">
-                    Vous avez déjà un compte? 
-                    <a href="{{ route('login') }}" class="text-gold hover:text-gold-dark font-medium transition-colors">Se connecter</a>
-                </p>
-            </form>
+    <!-- Terms & Newsletter -->
+    <div class="space-y-3">
+        <label class="flex items-start">
+            <input type="checkbox" name="terms" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold mt-1" {{ old('terms') ? 'checked' : '' }}>
+            <span class="ml-3 text-sm text-gray-600">
+                J'accepte les <a href="{{ route('conditions') }}" class="text-gold hover:text-gold-dark">conditions d'utilisation</a> et la <a href="{{ route('politique_confidentialite') }}" class="text-gold hover:text-gold-dark">politique de confidentialité</a>
+            </span>
+        </label>
+        @error('terms')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        @enderror
+
+        <label class="flex items-center">
+            <input type="checkbox" name="newsletter" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold" {{ old('newsletter') ? 'checked' : '' }}>
+            <span class="ml-3 text-sm text-gray-600">Je souhaite recevoir des offres spéciales et des actualités par e-mail</span>
+        </label>
+                @error('newsletter')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+        @enderror
+    </div>
+
+    <!-- Register Button -->
+    <button type="submit" class="w-full gold-gradient text-black py-3 px-4 rounded-lg font-medium hover:opacity-90 transition-colors shadow-md">
+        Créer mon compte
+    </button>
+
+    <!-- Sign In Link -->
+    <p class="text-center text-sm text-gray-600">
+        Vous avez déjà un compte? 
+        <a href="{{ route('login') }}" class="text-gold hover:text-gold-dark font-medium transition-colors">Se connecter</a>
+    </p>
+</form>
+
         </div>
 
         <!-- Image Section -->
