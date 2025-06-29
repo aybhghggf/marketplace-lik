@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -23,18 +25,28 @@ class UserController extends Controller
     {
         return view('Register');
     }
-    public function StoreUser(Request $request)
+    public function StoreUser(Request $request, UserValidation $userValidation)
     {
-        //validation
-        $request->validated();
-        //values
-        $nom = $request->input('first_name');
-        $prenom = $request->input('last_name');
-        $email = $request->input('email');
-        $telephone = $request->input('phone');
-        $password = bcrypt($request->input('password'));
-        //create user
-        
-        return redirect()->route('login')->with('success', 'Inscription réussie, vous pouvez vous connecter.');
+        if (!isset($request)) {
+            return redirect()->route('register')->with('error', 'Veuillez remplir le formulaire d\'inscription.');
+        } else {
+            //validation
+            $userValidation->validated();
+            //values
+            $nom = $request->input('first_name');
+            $prenom = $request->input('last_name');
+            $email = $request->input('email');
+            $telephone = $request->input('phone');
+            $password = bcrypt($request->input('password'));
+            //create user
+            User::create([
+                'nom' => $nom,
+                'prenom' => $prenom,
+                'email' => $email,
+                'phone' => $telephone,
+                'password' => $password,
+            ]);
+            return redirect()->route('login')->with('success', 'Inscription réussie, vous pouvez vous connecter.');
+        }
     }
 }

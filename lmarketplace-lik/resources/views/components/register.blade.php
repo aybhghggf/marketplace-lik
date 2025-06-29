@@ -55,7 +55,8 @@
             </div>
 
             <!-- Form -->
-            <form class="space-y-5">
+            <form class="space-y-5" method="POST" action="{{ route('register.store') }}">
+                @csrf
                 <!-- Name Fields -->
                 <div class="grid grid-cols-2 gap-4">
                     <div>

@@ -25,3 +25,4 @@ Route::get('/categorie/{id}', [CategorieController::class, 'ShowCategory'])->nam
 Route::get('/profile', [UserController::class, 'ShowProfile'])->name('profile');
 Route::get('/login', [UserController::class, 'ShowLogin'])->name('login');
 Route::get('/register', [UserController::class, 'ShowRegister'])->name('register');
+Route::post('/register/store', [UserController::class, 'StoreUser'])->name('register.store');
