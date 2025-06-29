@@ -52,7 +52,7 @@
                                 <p class="text-sm font-medium text-gray-900">{{ Auth::user()->name }}</p>
                                 <p class="text-xs text-gray-500">{{ Auth::user()->email }}</p>
                             </div>
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 transition-colors flex items-center">
+                            <a href="{{ route('profile') }}" class="block px-4 py-2 hover:bg-gray-100 transition-colors flex items-center">
                                 <i class="ri-user-line mr-2"></i>
                                 <span>Profil</span>
                             </a>

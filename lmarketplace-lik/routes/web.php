@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategorieController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [IndexController::class, 'ShowHome'])->name('home');
@@ -28,3 +29,6 @@ Route::get('/register', [UserController::class, 'ShowRegister'])->name('register
 Route::post('/register/store', [UserController::class, 'StoreUser'])->name('register.store');
 Route::post('/login', [UserController::class, 'Login'])->name('login.store');
 Route::post('/logout', [UserController::class, 'Logout'])->name('logout');
+
+// Object routes
+Route::post('/object/store', [ObjectController::class, 'StoreObject'])->name('object.store');

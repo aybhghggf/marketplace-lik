@@ -26,7 +26,8 @@ class IndexController extends Controller
     }
     public function ShowNewAnnouncement()
     {
-        return view('NewAnnonce');
+        $categories = Categorie::all();
+        return view('NewAnnonce' , compact('categories'));
     }
     public function PolitiqueConfidentialite()
     {
