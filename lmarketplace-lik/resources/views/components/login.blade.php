@@ -107,7 +107,7 @@
                 class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold"
                 {{ old('remember') ? 'checked' : '' }}
             >
-            <span class="ml-2 text-sm text-gray-600">Se souvenir pendant 30 jours</span>
+            <span class="ml-2 text-sm text-gray-600">Se souvenir </span>
         </label>
         <a href="#" class="text-sm text-gold hover:text-gold-dark transition-colors">Mot de passe oublié</a>
     </div>

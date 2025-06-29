@@ -71,4 +71,9 @@ class UserController extends Controller
             return redirect()->route('login')->with('error', 'Identifiants incorrects, veuillez réessayer.');
         }
     }
+    public function Logout()
+    {
+        Auth::logout();
+        return redirect()->route('home')->with('success', 'Déconnexion réussie.');
+    }
 }
