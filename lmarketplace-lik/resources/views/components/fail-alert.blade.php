@@ -1,9 +1,9 @@
 <div 
     x-data="{ show: true }" 
     x-show="show" 
-    x-transition
+    x-transition 
     @keydown.escape.window="show = false"
-    x-init="$el.focus()"
+    x-init="setTimeout(() => show = false, 5000)" 
     tabindex="0"
     class="fixed top-4 right-4 z-[9999] w-full max-w-md"
 >
