@@ -60,48 +60,48 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Prénom</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre prénom">
+                        <input type="text" name="first_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre prénom">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Nom</label>
-                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre nom">
+                        <input type="text" name="last_name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Votre nom">
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Adresse e-mail</label>
-                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="votre.email@exemple.com">
+                    <input type="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="votre.email@exemple.com">
                 </div>
 
                 <!-- Phone -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Téléphone</label>
-                    <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="+33 6 12 34 56 78">
+                    <input type="tel" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="+33 6 12 34 56 78">
                 </div>
 
                 <!-- Password -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Mot de passe</label>
-                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Minimum 8 caractères">
+                    <input type="password" name="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Minimum 8 caractères">
                 </div>
 
                 <!-- Confirm Password -->
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Confirmer le mot de passe</label>
-                    <input type="password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Confirmez votre mot de passe">
+                    <input type="password" name="password_confirmation" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-colors" placeholder="Confirmez votre mot de passe">
                 </div>
 
                 <!-- Terms & Newsletter -->
                 <div class="space-y-3">
                     <label class="flex items-start">
-                        <input type="checkbox" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold mt-1">
+                        <input type="checkbox" name="terms" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold mt-1">
                         <span class="ml-3 text-sm text-gray-600">
                             J'accepte les <a href="{{ route('conditions') }}" class="text-gold hover:text-gold-dark">conditions d'utilisation</a> et la <a href="{{ route('politique_confidentialite') }}" class="text-gold hover:text-gold-dark">politique de confidentialité</a>
                         </span>
                     </label>
                     <label class="flex items-center">
-                        <input type="checkbox" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold">
+                        <input type="checkbox" name="newsletter" class="w-4 h-4 text-gold bg-gray-100 border-gray-300 rounded focus:ring-gold">
                         <span class="ml-3 text-sm text-gray-600">Je souhaite recevoir des offres spéciales et des actualités par e-mail</span>
                     </label>
                 </div>

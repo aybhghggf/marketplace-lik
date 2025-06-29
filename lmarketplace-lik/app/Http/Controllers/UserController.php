@@ -23,4 +23,18 @@ class UserController extends Controller
     {
         return view('Register');
     }
+    public function StoreUser(Request $request)
+    {
+        //validation
+        $request->validated();
+        //values
+        $nom = $request->input('first_name');
+        $prenom = $request->input('last_name');
+        $email = $request->input('email');
+        $telephone = $request->input('phone');
+        $password = bcrypt($request->input('password'));
+        //create user
+        
+        return redirect()->route('login')->with('success', 'Inscription réussie, vous pouvez vous connecter.');
+    }
 }
