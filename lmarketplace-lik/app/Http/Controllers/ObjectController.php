@@ -13,7 +13,7 @@ class ObjectController extends Controller
 public function StoreObject(Request $request, ObjectRequest $objectRequest)
 {
     $objectRequest->validated();
-
+    $phone = $request->input('phone_number');
     $status = $request->input('status');
     $city = $request->input('city');
     $title = $request->input('title');
@@ -37,6 +37,7 @@ public function StoreObject(Request $request, ObjectRequest $objectRequest)
         'user_id'     => $userId,
         'city'        => $city,
         'status'      => $status,
+        'phone'       => $phone,
     ]);
 
     return redirect()->route('home')->with('success', 'Votre annonce a été créée avec succès.');

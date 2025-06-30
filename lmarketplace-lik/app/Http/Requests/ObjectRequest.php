@@ -28,6 +28,7 @@ class ObjectRequest extends FormRequest
             'status' => 'required|in:available,pending,sold,deleted',
             'main_image' => 'nullable|image|max:2048',
             'city' => 'required|string|max:100',
+            'phone' => 'nullable|string|max:15',
         ];
     }
 }

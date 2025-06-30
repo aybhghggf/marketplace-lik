@@ -15,6 +15,7 @@ class Objet extends Model
         'categorie_id',
         'title',
         'description',
+        'phone',
         'price',
         'status',
         'main_image',

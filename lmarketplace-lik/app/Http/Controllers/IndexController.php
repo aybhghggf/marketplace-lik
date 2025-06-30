@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function ShowHome(Request $request)
     {
-        $LastAnnoces = Objet::orderBy('created_at', 'desc')->get();
+        $LastAnnoces = Objet::orderBy('created_at', 'desc')->paginate(4);
         $categories = Categorie::paginate(6);
         $Villes = Ville::paginate();
 
