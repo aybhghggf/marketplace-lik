@@ -5,15 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Ville;
+use App\Models\Objet;
 
 class IndexController extends Controller
 {
     public function ShowHome(Request $request)
     {
+        $LastAnnoces = Objet::orderBy('created_at', 'desc')->get();
         $categories = Categorie::paginate(6);
         $Villes = Ville::paginate();
 
-        return view('Home', compact('categories', 'Villes'));
+        return view('Home', compact('categories', 'Villes', 'LastAnnoces'));
     }
 
     public function HowItWorks()
@@ -27,7 +29,7 @@ class IndexController extends Controller
     public function ShowNewAnnouncement()
     {
         $categories = Categorie::all();
-        return view('NewAnnonce' , compact('categories'));
+        return view('NewAnnonce', compact('categories'));
     }
     public function PolitiqueConfidentialite()
     {

@@ -37,7 +37,6 @@ Catégories - LmarketDyalek
 
             <h3 class="font-bold text-gray-800 text-center mb-2">{{ $category->name }}</h3>
             <p class="text-{{ explode('-', $category->color)[1] }}-500 text-sm text-center font-semibold">
-                {{ number_format($category->ads_count) }} annonces
             </p>
         </a>
     @endforeach

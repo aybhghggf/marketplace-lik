@@ -12,7 +12,7 @@
     <x-categorie-section :categories="$categories" />
 
     <!-- Featured Products -->
-    <x-last-annonce />
+    <x-last-annonce :annonces="$LastAnnoces" />
 
     <!-- Popular Cities -->
     <x-annonces-par-ville :villes="$Villes" />

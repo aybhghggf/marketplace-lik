@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class LastAnnonce extends Component
 {
+public $annonces;
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct( $annonces )
     {
-        //
+        $this->annonces = $annonces;
     }
 
     /**
