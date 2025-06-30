@@ -50,9 +50,8 @@
         <!-- Image -->
         <div class="h-56 overflow-hidden relative">
             <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10"></div>
-            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                 src="{{ asset('storage/' . $object->main_image) }}" 
-                 alt="{{ $object->title }}">
+            <img src="{{ asset('storage/' . $object->main_image) }}" alt="Image de l'objet">
+
         </div>
         
         <!-- Contenu -->
