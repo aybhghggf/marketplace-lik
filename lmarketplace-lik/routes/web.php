@@ -32,3 +32,4 @@ Route::post('/logout', [UserController::class, 'Logout'])->name('logout');
 
 // Object routes
 Route::post('/object/store', [ObjectController::class, 'StoreObject'])->name('object.store');
+Route::get('/object', [CategorieController::class, 'ShowCategory'])->name('object.show');

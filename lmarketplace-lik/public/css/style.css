@@ -362,3 +362,40 @@ nav[role="navigation"] span[aria-current="page"] {
     color: white;
     border-color: #007bff;
 }
+.gradient-gold {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4E7AA 100%);
+}
+.gradient-dark {
+    background: linear-gradient(135deg, #2C2C2C 0%, #404040 100%);
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+.search-glow:focus {
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+.text-charcoal {
+    color: #2C2C2C;
+}
+.text-charcoal-light {
+    color: #404040;
+}
+.focus\:border-gold:focus {
+    border-color: #D4AF37;
+}
+.text-gold {
+    color: #D4AF37;
+}
+.bg-gold {
+    background-color: #D4AF37;
+}
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
