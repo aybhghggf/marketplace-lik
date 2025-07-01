@@ -18,8 +18,7 @@ Route::get('/conditions', [IndexController::class, 'ShowConditions'])->name('con
 
 
 
-
-
+//Categorie routes
 Route::get('/categorie/{id}', [CategorieController::class, 'ShowCategory'])->name('categorie.show');
 
 // User routes
@@ -33,3 +32,8 @@ Route::post('/logout', [UserController::class, 'Logout'])->name('logout');
 // Object routes
 Route::post('/object/store', [ObjectController::class, 'StoreObject'])->name('object.store');
 Route::get('/object', [CategorieController::class, 'ShowCategory'])->name('object.show');
+Route::get('/object/{id}', [ObjectController::class, 'ShowObject'])->name('object.details');
+
+
+//city routes
+Route::get('/ville/{nom}', [IndexController::class, 'ShowAnnoncesByVille'])->name('ville.annonces');

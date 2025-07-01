@@ -44,7 +44,7 @@
     @yield('NewAnnonce')
     @yield('Profile')
     @yield('Categorie')
-
+    @yield('Villes')
 
 
 

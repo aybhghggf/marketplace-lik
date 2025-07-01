@@ -21,16 +21,7 @@
         </div>
       </div>
       <div class="flex space-x-4">
-        <select class="px-6 py-3 border-2 border-gold/30 rounded-xl focus:border-gold search-glow transition-all duration-300 text-charcoal bg-white">
-          <option>Toutes catégories</option>
-          <option>Informatique</option>
-          <option>Électroménager</option>
-        </select>
-        <select class="px-6 py-3 border-2 border-gold/30 rounded-xl focus:border-gold search-glow transition-all duration-300 text-charcoal bg-white">
-          <option>Trier par</option>
-          <option>Plus récent</option>
-          <option>Prix croissant</option>
-        </select>
+       
       </div>
     </div>
   </div>
@@ -71,7 +62,7 @@
                 <span>{{ $object->created_at->diffForHumans() }}</span>
             </div>
             
-            <a href="{{ route('object.show', $object->id) }}" 
+            <a href="{{ route('object.details', $object->product_id) }}" 
                class="w-full gradient-dark text-white font-semibold py-3 px-4 rounded-xl hover:shadow-lg transition-all duration-300 flex items-center justify-center group">
                 Voir détails
                 <i class="ri-arrow-right-line ml-2 group-hover:translate-x-1 transition-transform"></i>

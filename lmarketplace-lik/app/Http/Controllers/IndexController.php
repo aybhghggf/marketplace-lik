@@ -39,4 +39,12 @@ class IndexController extends Controller
     {
         return view('Conditions');
     }
+    public function ShowAnnoncesByVille($nomdeville)
+    {
+        $Villes = Ville::all();
+        $categories = Categorie::all();
+        $annonces = Objet::all()->where( 'city', $nomdeville);
+
+        return view('VilleAnnonces', compact('Villes', 'categories', 'annonces'));
+    }
 }

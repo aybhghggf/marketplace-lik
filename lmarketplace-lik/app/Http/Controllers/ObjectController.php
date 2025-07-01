@@ -27,7 +27,29 @@ public function StoreObject(Request $request, ObjectRequest $objectRequest)
     } else {
         $imagePath = null;
     }
-
+    if($city=== 'Fès'){
+        $city = 'fes';
+    } elseif($city === 'Marrakech') {
+        $city = 'marrakech';
+    } elseif($city === 'Casablanca') {
+        $city = 'casablanca';
+    } elseif($city === 'Rabat') {
+        $city = 'rabat';
+    } elseif($city === 'Tanger') {
+        $city = 'tanger';
+    } elseif($city === 'Agadir') {
+        $city = 'agadir';
+    } elseif($city === 'Oujda') {
+        $city = 'oujda';
+    } elseif($city === 'Tétouan') {
+        $city = 'tetouan';
+    } elseif($city === 'Meknès') {
+        $city = 'meknes';
+    } elseif($city === 'Safi') {
+        $city = 'safi';
+    } elseif($city === 'Kénitra') {
+        $city = 'kenitra';
+    }
     Objet::create([
         'title'       => $title,
         'description' => $description,
@@ -35,12 +57,16 @@ public function StoreObject(Request $request, ObjectRequest $objectRequest)
         'categorie_id' => $categoryId,
         'main_image'  => $imagePath,
         'user_id'     => $userId,
-        'city'        => $city,
+        'city'        => strtolower($city),
         'status'      => $status,
         'phone'       => $phone,
     ]);
 
     return redirect()->route('home')->with('success', 'Votre annonce a été créée avec succès.');
 }
-
+    public function ShowObject($id)
+    {
+        $object = Objet::findOrFail($id);
+        return view('Object-detaille', compact('object'));
+    }
 }
