@@ -45,6 +45,7 @@
     @yield('Profile')
     @yield('Categorie')
     @yield('Villes')
+    @yield('Detaille')
 
 
 

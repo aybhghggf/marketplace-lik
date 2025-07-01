@@ -29,6 +29,7 @@ class ObjectRequest extends FormRequest
             'main_image' => 'nullable|image|max:2048',
             'city' => 'required|string|max:100',
             'phone' => 'nullable|string|max:15',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ];
     }
 }

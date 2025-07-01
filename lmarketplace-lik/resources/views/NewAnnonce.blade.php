@@ -32,6 +32,8 @@ Nouvelle Annonce - LmarketDyalek
         <form class="bg-white p-6 rounded-lg shadow-sm border border-gray-100" action="{{ route('object.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
+
+
             <!-- Section 1 : Informations de base -->
             <div class="mb-8">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
@@ -172,20 +174,69 @@ Nouvelle Annonce - LmarketDyalek
                 </div>
 
                 <!-- Galerie d'images supplémentaires -->
-                <div>
-                    <label class="block text-gray-700 font-medium mb-2">Photos supplémentaires</label>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                        <template x-for="(_, index) in 4" :key="index">
-                            <div class="border-2 border-dashed border-gray-200 rounded-lg h-32 flex items-center justify-center cursor-pointer bg-gray-50 hover:bg-gray-100 transition">
-                                <div class="text-center">
-                                    <i class="ri-add-line text-gray-400"></i>
-                                </div>
+<div class="mt-6">
+    <label for="images" class="block text-gray-700 font-medium mb-2">
+        Photos supplémentaires
+        <span class="text-sm font-normal text-gray-500">(Optionnel)</span>
+    </label>
+
+    <!-- File Upload Area -->
+    <div 
+        x-data="{ files: [] }" 
+        class="border-2 border-dashed {{ $errors->has('images.*') ? 'border-red-500 bg-red-50' : 'border-gray-200 hover:border-primary' }} rounded-lg p-6 transition-colors duration-200"
+        @dragover.prevent="$event.dataTransfer.dropEffect = 'copy'; $el.classList.add('border-primary', 'bg-blue-50')"
+        @dragleave.prevent="$el.classList.remove('border-primary', 'bg-blue-50')"
+        @drop.prevent="
+            $el.classList.remove('border-primary', 'bg-blue-50');
+            files = Array.from($event.dataTransfer.files);
+            document.getElementById('images').files = $event.dataTransfer.files;
+        "
+    >
+        <div class="text-center">
+            <i class="ri-image-add-line text-3xl text-gray-400 mb-2"></i>
+            <p class="text-gray-600 mb-3">Glissez-déposez vos images ici</p>
+            <label for="images" class="cursor-pointer bg-primary text-white px-4 py-2 rounded-lg inline-block hover:bg-primary-dark transition">
+                <i class="ri-folder-open-line mr-2"></i>
+                Parcourir les fichiers
+            </label>
+            <input 
+                type="file" 
+                name="images[]" 
+                id="images" 
+                multiple 
+                accept="image/*" 
+                class="hidden"
+                x-on:change="files = Array.from($event.target.files)"
+            >
+            <p class="text-xs text-gray-400 mt-3">Formats acceptés: JPG, PNG (max 5MB par image)</p>
+        </div>
+
+        <!-- Selected files preview -->
+        <template x-if="files.length > 0">
+            <div class="mt-4">
+                <h4 class="text-sm font-medium text-gray-700 mb-2">Fichiers sélectionnés:</h4>
+                <ul class="space-y-2">
+                    <template x-for="(file, index) in files" :key="index">
+                        <li class="flex items-center justify-between bg-gray-50 p-2 rounded">
+                            <div class="flex items-center truncate">
+                                <i class="ri-image-line text-gray-400 mr-2"></i>
+                                <span x-text="file.name" class="truncate text-sm"></span>
                             </div>
-                        </template>
-                    </div>
-                    <p class="text-xs text-gray-400 mt-2">Maximum 5 photos supplémentaires (optionnel)</p>
-                </div>
+                            <span x-text="(file.size/1024/1024).toFixed(2)+'MB'" class="text-xs text-gray-500"></span>
+                        </li>
+                    </template>
+                </ul>
             </div>
+        </template>
+    </div>
+
+    @error('images.*')
+        <p class="mt-2 text-sm text-red-600 flex items-center">
+            <i class="ri-error-warning-line mr-1"></i>
+            {{ $message }}
+        </p>
+    @enderror
+</div>
 
             <!-- Bouton de soumission -->
             <div>

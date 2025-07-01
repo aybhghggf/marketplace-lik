@@ -10,16 +10,16 @@ class Objet extends Model
 
     protected $primaryKey = 'product_id'; // Specify the primary key if it's not 'id'
 
-    protected $fillable = [
-        'user_id',
-        'categorie_id',
+protected $fillable = [
         'title',
         'description',
-        'phone',
         'price',
-        'status',
+        'categorie_id',
         'main_image',
+        'user_id',
         'city',
+        'status',
+        'phone',
     ];
 
     public function user()
