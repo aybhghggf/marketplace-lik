@@ -77,4 +77,5 @@ class ObjectController extends Controller
 
         return response()->json($results);
     }
+    
 }
