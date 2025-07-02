@@ -70,7 +70,7 @@ Annonces par Ville - LmarketDyalek
                             <span>{{ $obj->created_at->diffForHumans() }}</span>
                         </div>
                         
-                        <a href="{{ route('object.details', $obj->id) }}" 
+                        <a href="{{ route('object.details',$obj->product_id) }}" 
                            class="w-full inline-flex justify-center items-center px-3 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors">
                             Voir détails
                             <i class="ri-arrow-right-line ml-2"></i>

@@ -33,6 +33,7 @@ Route::post('/logout', [UserController::class, 'Logout'])->name('logout');
 Route::post('/object/store', [ObjectController::class, 'StoreObject'])->name('object.store');
 Route::get('/object', [CategorieController::class, 'ShowCategory'])->name('object.show');
 Route::get('/object/{id}', [ObjectController::class, 'ShowObject'])->name('object.details');
+Route::get('/search-objects', [ObjectController::class, 'search'])->name('objects.search');
 
 
 //city routes
