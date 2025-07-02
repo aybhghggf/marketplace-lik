@@ -111,6 +111,66 @@
         <p class="text-sm mt-1">Essayez avec d'autres termes de recherche</p>
     </div>
 </div>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobile-menu" class="md:hidden hidden fixed inset-0 z-50 bg-primary/95 backdrop-blur-sm">
+    <div class="container mx-auto px-4 py-4 h-full flex flex-col">
+        <!-- Header with logo and close button -->
+        <div class="flex items-center justify-between">
+            <a href="#" class="text-white text-2xl logo-font flex items-center">
+                <i class="ri-shopping-bag-3-line mr-2 text-secondary"></i>
+                LmarketDyalek
+            </a>
+            <button id="mobile-close-btn" class="text-white hover:text-secondary transition-colors p-2">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Links -->
+        <nav class="flex-1 flex flex-col justify-center space-y-6 text-white">
+            <a href="{{ route('home') }}" class="text-xl hover:text-secondary transition-colors py-2 border-b border-white/10">Accueil</a>
+            <a href="{{ route('categories') }}" class="text-xl hover:text-secondary transition-colors py-2 border-b border-white/10">Catégories</a>
+            <a href="{{ route('how_it_works') }}" class="text-xl hover:text-secondary transition-colors py-2 border-b border-white/10">Comment ça marche</a>
+            <a href="{{ route('about') }}" class="text-xl hover:text-secondary transition-colors py-2 border-b border-white/10">À propos</a>
+            
+            @auth
+                <div class="pt-4 mt-4 border-t border-white/10">
+                    <a href="{{ route('profile') }}" class="text-xl hover:text-secondary transition-colors py-2 flex items-center">
+                        <i class="ri-user-line mr-3 text-secondary"></i> Profil
+                    </a>
+                    <a href="#" class="text-xl hover:text-secondary transition-colors py-2 flex items-center">
+                        <i class="ri-shopping-cart-line mr-3 text-secondary"></i> Mes commandes
+                    </a>
+                    <a href="#" class="text-xl hover:text-secondary transition-colors py-2 flex items-center">
+                        <i class="ri-list-check mr-3 text-secondary"></i> Mes annonces
+                    </a>
+                </div>
+                
+                <form method="POST" action="{{ route('logout') }}" class="pt-2">
+                    @csrf
+                    <button type="submit" class="text-xl hover:text-secondary transition-colors py-2 flex items-center w-full">
+                        <i class="ri-logout-box-r-line mr-3 text-secondary"></i> Déconnexion
+                    </button>
+                </form>
+                
+                <a href="{{ route('new_announcement') }}" class="bg-secondary text-white px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors text-center flex items-center justify-center mt-4">
+                    <i class="ri-add-line mr-2"></i>
+                    Déposer une annonce
+                </a>
+            @else
+                <div class="pt-4 mt-4 border-t border-white/10">
+                    <a href="{{ route('login') }}" class="text-xl hover:text-secondary transition-colors py-2 flex items-center">
+                        <i class="ri-login-box-line mr-3 text-secondary"></i> Se connecter
+                    </a>
+                    <a href="{{ route('register') }}" class="text-xl hover:text-secondary transition-colors py-2 flex items-center">
+                        <i class="ri-user-add-line mr-3 text-secondary"></i> S'inscrire
+                    </a>
+                </div>
+            @endauth
+        </nav>
+    </div>
+</div>
+
 <script>
 const searchInput = document.getElementById('searchInput');
 const resultsContainer = document.getElementById('resultsContainer');
@@ -173,3 +233,4 @@ document.addEventListener('click', function(event) {
     }
 });
 </script>
+<script src="{{ asset('js/nav.js') }}" defer></script>
