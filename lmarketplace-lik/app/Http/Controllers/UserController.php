@@ -15,6 +15,7 @@ class UserController extends Controller
         if (Auth::user() === null) {
             return redirect()->route('login')->with('error', 'Vous devez être connecté pour accéder à votre profil.');
         } else {
+            $user = Auth::user();
             return view('Profile');
         }
     }

@@ -9,22 +9,7 @@
     <div class="w-24 h-1 gradient-gold mx-auto mt-4 rounded-full"></div>
   </div>
 
-  <!-- Filtres -->
-  <div class="mb-10 p-6 bg-white rounded-2xl shadow-lg">
-    <div class="flex flex-wrap justify-between items-center gap-6">
-      <div class="flex-1 max-w-md">
-        <div class="relative">
-          <input type="text" 
-               placeholder="Rechercher une annonce..." 
-               class="w-full pl-12 pr-4 py-3 border-2 border-gold/30 rounded-xl focus:border-gold search-glow transition-all duration-300 text-charcoal placeholder-gray-400">
-          <i class="ri-search-line absolute left-4 top-1/2 transform -translate-y-1/2 text-gold text-xl"></i>
-        </div>
-      </div>
-      <div class="flex space-x-4">
-       
-      </div>
-    </div>
-  </div>
+  
 
   <!-- Grille d'Annonces -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

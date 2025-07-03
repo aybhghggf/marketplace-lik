@@ -580,3 +580,39 @@ nav[role="navigation"] span[aria-current="page"] {
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         border-color: var(--gold);
     }
+        .logo-font {
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+        }
+        .nav-link {
+            font-weight: 500;
+        }
+        /* Configuration des couleurs personnalisées */
+        :root {
+            --primary: #1e40af;
+            --secondary: #f59e0b;
+        }
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        .text-secondary {
+            color: var(--secondary);
+        }
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        .border-secondary {
+            border-color: var(--secondary);
+        }
+        .focus\:border-secondary:focus {
+            border-color: var(--secondary);
+        }
+        .focus\:ring-secondary\/30:focus {
+            --tw-ring-color: rgb(245 158 11 / 0.3);
+        }
+        .hover\:text-secondary:hover {
+            color: var(--secondary);
+        }
+        .hover\:border-secondary:hover {
+            border-color: var(--secondary);
+        }
