@@ -134,7 +134,7 @@ Votre Posts
                     </svg>
                     Modifier
                 </a>
-                <form action="{{ route('object.delete') }}" method="POST" class="flex-1">
+                <form action="{{ route('object.delete', $post->product_id) }}" method="POST" class="flex-1">
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer {{ $post->title }} ?')" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-3 rounded-lg transition duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2">

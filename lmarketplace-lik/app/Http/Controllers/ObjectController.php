@@ -18,6 +18,25 @@ class ObjectController extends Controller
         $phone = $request->input('phone_number');
         $status = $request->input('status');
         $city = strtolower($request->input('city'));
+        if($city== 'marakesh'){
+            $city = 'marrakech';
+        } elseif ($city == 'tanger'|| $city == 'tanger-tetouan'|| $city == 'tanga'|| $city == 'tanja') {
+            $city = 'tanger';
+        } elseif ($city == 'casablanca') {
+            $city = 'casablanca';
+        } elseif ($city == 'fes' || $city == 'fas'|| $city == 'fès') {
+            $city = 'fes';
+        } elseif ($city == 'rabat') {
+            $city = 'rabat';
+        } elseif ($city == 'agadir') {
+            $city = 'agadir';
+        } elseif ($city == 'oujda') {
+            $city = 'oujda';
+        } elseif ($city == 'kenitra') {
+            $city = 'kenitra';
+        } elseif ($city == 'taza') {
+            $city = 'taza';
+        }
         $title = $request->input('title');
         $description = $request->input('description');
         $price = $request->input('price');

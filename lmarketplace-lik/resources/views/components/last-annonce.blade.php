@@ -10,16 +10,10 @@
                 <p class="text-gray-600 mt-2">Découvrez les dernières annonces publiées près de chez vous</p>
             </div>
             <div class="flex gap-2 mt-4 md:mt-0">
-                <button class="px-1 py-1 rounded-full border border-gray-300 hover:bg-gray-100 transition-colors">
-                    <div class="w-8 h-8 flex items-center justify-center">
-                        <i class="ri-arrow-left-s-line ri-lg"></i>
-                    </div>
-                </button>
-                <button class="px-1 py-1 rounded-full border border-gray-300 bg-secondary text-white hover:bg-opacity-90 transition-colors">
-                    <div class="w-8 h-8 flex items-center justify-center">
-                        <i class="ri-arrow-right-s-line ri-lg"></i>
-                    </div>
-                </button>
+                <a href="{{ route('categories') }}" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
+                    <span>Voir toutes les catégories</span>
+                    <i class="ri-arrow-right-line ml-2"></i>
+                </a>
             </div>
         </div>
 
