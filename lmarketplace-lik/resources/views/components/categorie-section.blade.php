@@ -14,7 +14,6 @@
                 <i class="{{ $category->icon }} ri-2x"></i>
             </div>
             <h3 class="font-medium">{{ $category->name }}</h3>
-            <p class="text-gray-500 text-sm mt-1">{{ $category->ads_count ?? 0 }} annonces</p>
         </a>
     @endforeach
 </div>

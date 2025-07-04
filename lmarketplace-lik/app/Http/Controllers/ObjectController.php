@@ -12,6 +12,7 @@ class ObjectController extends Controller
 {
     public function StoreObject(Request $request, ObjectRequest $objectRequestValidation)
     {
+
         $objectRequestValidation->validated();
 
         $phone = $request->input('phone_number');
@@ -77,5 +78,37 @@ class ObjectController extends Controller
 
         return response()->json($results);
     }
-    
+    public function UpdateObject(Request $request, $id)
+    {
+        $new_title= $request->input('title');
+        $new_description = $request->input('description');
+        $new_price = $request->input('price');
+        $new_category = $request->input('category');
+        $new_phone = $request->input('phone');
+        $new_city = $request->input('city');
+        $new_main_photo = $request->file('new_photo');
+         
+        $object = Objet::findOrFail($id);
+        $object->title = $new_title;
+        $object->description = $new_description;
+        $object->price = $new_price;
+        $object->categorie_id = $new_category;
+        $object->phone = $new_phone;
+        $object->city = $new_city;
+        if ($new_main_photo) {
+            $imagePath = $new_main_photo->store('object_images', 'public');
+            $object->main_image = $imagePath;
+        }
+        $object->save();
+
+
+        return redirect()->route('user.posts',$id)->with('success', 'Objet mis à jour avec succès.');
+    }
+    public function DeleteObject($id)
+    {
+        $object = Objet::findOrFail($id);
+        $object->delete();
+
+        return redirect()->route('user.posts')->with('success', 'Objet supprimé avec succès.');
+    }
 }

@@ -46,8 +46,8 @@
     @yield('Categorie')
     @yield('Villes')
     @yield('Detaille')
-
-
+    @yield('Posts')
+    @yield('UpdateObj')
 
 
     <footer>
@@ -56,7 +56,7 @@
     </footer>
 
     <!-- Floating Action Button -->
-    <a href="#" class="floating-action-button">
+    <a href="{{ route('new_announcement') }}" class="floating-action-button">
         <i class="ri-add-line ri-xl"></i>
     </a>
 

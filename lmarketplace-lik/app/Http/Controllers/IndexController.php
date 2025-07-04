@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Categorie;
 use App\Models\Ville;
 use App\Models\Objet;
+use App\Models\User;
 
 class IndexController extends Controller
 {
@@ -28,6 +29,9 @@ class IndexController extends Controller
     }
     public function ShowNewAnnouncement()
     {
+        if (!auth()->check()) {
+            return redirect()->route('login')->with('error', 'Veuillez vous connecter pour créer une annonce.');
+        }
         $categories = Categorie::all();
         return view('NewAnnonce', compact('categories'));
     }
@@ -47,4 +51,17 @@ class IndexController extends Controller
 
         return view('VilleAnnonces', compact('Villes', 'categories', 'annonces'));
     }
+        public function ShowPosts()
+    {
+        $posts= Objet::all();
+        return view('posts', compact('posts'));
+    
+    }
+    public function EditObject($id)
+    {
+        $categories = Categorie::all();
+        $object = Objet::findOrFail($id);
+        return view('updateObj', compact('object' , 'categories'));
+    }
+
 }
