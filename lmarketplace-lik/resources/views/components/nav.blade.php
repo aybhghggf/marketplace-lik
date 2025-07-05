@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
             <!-- Logo - Version plus compacte -->
-            <a href="#" class="flex items-center space-x-2 group">
+            <a href="{{ route('home') }}" class="flex items-center space-x-2 group">
                 <i class="ri-shopping-bag-3-line text-2xl text-secondary group-hover:text-white transition-colors"></i>
                 <span class="text-white text-xl font-bold tracking-tight">LmarketDyalek</span>
             </a>

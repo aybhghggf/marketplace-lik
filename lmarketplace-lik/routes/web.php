@@ -6,6 +6,8 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ObjectController;
 use App\Http\Controllers\UserController;
 
+
+// Web Routes
 Route::get('/', [IndexController::class, 'ShowHome'])->name('home');
 Route::get('/categories', [CategorieController::class, 'ShowCategorys'])->name('categories');
 Route::get('/how-it-works', [IndexController::class, 'HowItWorks'])->name('how_it_works');
@@ -47,3 +49,6 @@ Route::delete('/object/{id}/delete', [ObjectController::class, 'DeleteObject'])-
 
 //city routes
 Route::get('/ville/{nom}', [IndexController::class, 'ShowAnnoncesByVille'])->name('ville.annonces');
+
+//notification routes
+Route::post('/notification',[IndexController::class, 'storeNotification'])->name('notification.store');

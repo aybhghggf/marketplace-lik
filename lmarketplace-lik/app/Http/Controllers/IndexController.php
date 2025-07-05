@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categorie;
+use App\Models\notification;
 use App\Models\Ville;
 use App\Models\Objet;
 use App\Models\User;
@@ -63,5 +64,13 @@ class IndexController extends Controller
         $object = Objet::findOrFail($id);
         return view('updateObj', compact('object' , 'categories'));
     }
+    public function storeNotification(Request $request)
+    {
+        $email = $request->input('email');
 
+        notification::create([
+            'email' => $email,
+        ]);
+        return redirect()->back()->with('success', 'Vous avez été inscrit avec succès à la newsletter.');
+    }
 }

@@ -10,10 +10,6 @@
                 <p class="text-gray-600 mt-2">Découvrez les dernières annonces publiées près de chez vous</p>
             </div>
             <div class="flex gap-2 mt-4 md:mt-0">
-                <a href="{{ route('categories') }}" class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition-colors whitespace-nowrap">
-                    <span>Voir toutes les catégories</span>
-                    <i class="ri-arrow-right-line ml-2"></i>
-                </a>
             </div>
         </div>
 

@@ -23,7 +23,6 @@
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative max-w-xs">
-                        <img src="https://readdy.ai/api/search-image?query=modern%20smartphone%20showing%20a%20marketplace%20app%20interface%20with%20second-hand%20products%2C%20clean%20design%2C%20white%20background&width=400&height=600&seq=mobile1&orientation=portrait" alt="Mobile App" class="w-full h-auto rounded-lg shadow-xl">
                     </div>
                 </div>
             </div>

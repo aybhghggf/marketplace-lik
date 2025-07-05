@@ -27,19 +27,17 @@ Détails de l'annonce - LmarketDyalek
                              class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
                              id="mainImage">
                     </div>
-                    <!-- Miniatures -->
-                     @if ($images)
-                       @foreach ($images as $image)
-                       <div class="grid grid-cols-4 gap-3 p-6 bg-gray-50">
-                        <div class="thumbnail-container active">
-                            <img src="{{ asset('storage/'. $image->image_url) }}" alt="Image de l'objet">
-                        </div>
-                        
-                    </div>
 
-                       @endforeach
-                   @endif
-                    
+                    <!-- Miniatures -->
+                    @if ($images && $images->count())
+                    <div class="grid grid-cols-4 gap-3 p-6 bg-gray-50">
+                        @foreach ($images as $image)
+                            <div class="thumbnail-container {{ $loop->first ? 'active' : '' }}">
+                                <img src="{{ asset('storage/'. $image->image_url) }}" alt="Image de l'objet">
+                            </div>
+                        @endforeach
+                    </div>
+                    @endif
                 </div>
 
                 <!-- Détails du produit -->
@@ -89,6 +87,7 @@ Détails de l'annonce - LmarketDyalek
                             {{ $object->description }}
                         </p>
                     </div>
+
                     <!-- Caractéristiques -->
                     <div class="mb-8">
                         <h2 class="text-2xl font-bold text-black section-title">Caractéristiques</h2>
@@ -99,7 +98,7 @@ Détails de l'annonce - LmarketDyalek
                                 </div>
                                 <div>
                                     <p class="font-semibold text-black">Vendeur</p>
-                                    <p class="text-sm text-gray-600">{{ $seller->nom.' '.$seller->prenom }} </p>
+                                    <p class="text-sm text-gray-600">{{ $seller->nom . ' ' . $seller->prenom }} </p>
                                 </div>
                             </div>
                             <div class="flex items-center p-3 bg-gray-50 rounded-lg">
@@ -111,7 +110,7 @@ Détails de l'annonce - LmarketDyalek
                                     <p class="text-sm text-gray-600">{{ $seller->phone }} </p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-center p-3 bg-gray-50 rounded-lg">
                                 <div class="feature-icon mr-3">
                                     <i class="ri-calendar-line"></i>
@@ -126,97 +125,83 @@ Détails de l'annonce - LmarketDyalek
 
                     <!-- Actions -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="btn-gold py-4 px-8 rounded-xl font-semibold text-lg flex items-center justify-center hover-scale">
+                        <a href="https://wa.me/{{ preg_replace('/\D/', '', $seller->phone) }}" target="_blank" class="btn-gold py-4 px-8 rounded-xl font-semibold text-lg flex items-center justify-center hover-scale">
                             <i class="ri-whatsapp-line mr-3 text-xl"></i>
                             Contacter le vendeur
-                        </button>
-                        <button class="btn-outline-gold py-4 px-8 rounded-xl font-semibold text-lg flex items-center justify-center hover-scale">
-                            <i class="ri-heart-line mr-3 text-xl"></i>
-                            Ajouter aux favoris
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Annonces similaires -->
-<div class="mt-16">
-    <h2 class="text-3xl font-bold text-black section-title mb-8">Annonces similaires</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        @foreach ($objects as $item)
-            <div class="similar-card">
-                <a href="" class="block">
-                    <div class="h-48 overflow-hidden image-overlay">
-                        <img src="{{ asset('storage/' . $item->main_image) }}" 
-                             alt="{{ $item->title }}" 
-                             class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+        <div class="mt-16">
+            <h2 class="text-3xl font-bold text-black section-title mb-8">Annonces similaires</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                @foreach ($objects as $item)
+                    <div class="similar-card">
+                        <a href="{{ route('object.details', $item->product_id) }}" class="block">
+                            <div class="h-48 overflow-hidden image-overlay">
+                                <img src="{{ asset('storage/' . $item->main_image) }}" 
+                                     alt="{{ $item->title }}" 
+                                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="p-5">
+                                <h3 class="font-bold text-black mb-2 text-lg hover:text-gold transition-colors">
+                                    {{ $item->title }}
+                                </h3>
+                                <p class="text-2xl font-bold text-gold mb-3">
+                                    {{ number_format($item->price, 0, ',', ' ') }} MAD
+                                </p>
+                                <p class="text-sm text-gray-600 flex items-center">
+                                    <i class="ri-map-pin-line mr-2 text-gold"></i>
+                                    {{ ucfirst($item->city) }}
+                                </p>
+                                <p class="text-xs text-gray-500 mt-2">
+                                    <i class="ri-time-line mr-1"></i>
+                                    {{ $item->created_at->diffForHumans() }}
+                                </p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-black mb-2 text-lg hover:text-gold transition-colors">
-                            {{ $item->title }}
-                        </h3>
-                        <p class="text-2xl font-bold text-gold mb-3">
-                            {{ number_format($item->price, 0, ',', ' ') }} MAD
-                        </p>
-                        <p class="text-sm text-gray-600 flex items-center">
-                            <i class="ri-map-pin-line mr-2 text-gold"></i>
-                            {{ ucfirst($item->city) }}
-                        </p>
-                        <p class="text-xs text-gray-500 mt-2">
-                            <i class="ri-time-line mr-1"></i>
-                            {{ $item->created_at->diffForHumans() }}
-                        </p>
+                @endforeach
+                @if (!$objects->count())
+                    <div class="col-span-4 py-12 text-center">
+                        <div class="max-w-md mx-auto">
+                            <!-- Illustration -->
+                            <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-full bg-gray-100 text-gray-400">
+                                <i class="ri-search-eye-line text-3xl"></i>
+                            </div>
+                            <!-- Message -->
+                            <h3 class="text-lg font-medium text-gray-600 mb-2">Aucune annonce similaire trouvée</h3>
+                            <p class="text-gray-400 mb-6">Nous n'avons pas trouvé d'annonces similaires pour le moment.</p>
+                            <!-- Call to action -->
+                            <a href="{{ route('new_announcement') }}" 
+                               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors">
+                                <i class="ri-add-line mr-2"></i>
+                                Publier une annonce
+                            </a>
+                        </div>
                     </div>
-                </a>
+                @endif
             </div>
-        @endforeach
-        @if (!$objects->count())
-<div class="col-span-4 py-12 text-center">
-    <div class="max-w-md mx-auto">
-        <!-- Illustration -->
-        <div class="w-24 h-24 mx-auto mb-4 flex items-center justify-center rounded-full bg-gray-100 text-gray-400">
-            <i class="ri-search-eye-line text-3xl"></i>
         </div>
-        
-        <!-- Message -->
-        <h3 class="text-lg font-medium text-gray-600 mb-2">Aucune annonce similaire trouvée</h3>
-        <p class="text-gray-400 mb-6">Nous n'avons pas trouvé d'annonces similaires pour le moment.</p>
-        
-        <!-- Call to action -->
-        <a href="{{ route('new_announcement')}}" 
-           class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark transition-colors">
-            <i class="ri-add-line mr-2"></i>
-            Publier une annonce
-        </a>
-    </div>
-</div>
-            
-        @endif
-    </div>
-</div>
-
     </div>
 </section>
+
 <script>
 // Gestion des miniatures d'images
 document.addEventListener('DOMContentLoaded', function() {
     const thumbnails = document.querySelectorAll('.thumbnail-container');
     const mainImage = document.getElementById('mainImage');
-    
-    const images = [
-        'https://via.placeholder.com/600x500/D4AF37/FFFFFF?text=Image+Principale',
-        'https://via.placeholder.com/600x500/B8941F/FFFFFF?text=Image+2',
-        'https://via.placeholder.com/600x500/F4E4A6/1A1A1A?text=Image+3',
-        'https://via.placeholder.com/600x500/D4AF37/FFFFFF?text=Image+4'
-    ];
-    
+
+    // Récupérer les URLs dynamiquement depuis les miniatures
+    const images = Array.from(thumbnails).map(t => t.querySelector('img').src);
+
     thumbnails.forEach((thumbnail, index) => {
         thumbnail.addEventListener('click', function() {
-            // Retirer la classe active de tous les thumbnails
             thumbnails.forEach(t => t.classList.remove('active'));
-            // Ajouter la classe active au thumbnail cliqué
             this.classList.add('active');
-            // Changer l'image principale
             mainImage.src = images[index];
         });
     });

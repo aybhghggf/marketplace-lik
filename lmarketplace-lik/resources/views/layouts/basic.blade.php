@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <script src="{{ asset('js/tailwindconfig.js') }}"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
 </head>
 
 <!-- Success Alert -->
